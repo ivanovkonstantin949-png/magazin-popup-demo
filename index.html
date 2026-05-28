@@ -15,7 +15,6 @@ body {margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sa
 .overlay {position:fixed;inset:0;background:rgba(15,20,30,0.55);backdrop-filter:blur(4px);z-index:100;display:flex;align-items:flex-start;justify-content:center;padding:24px;overflow-y:auto}
 .popup {background:#fff;border-radius:18px;max-width:1100px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,0.35);overflow:hidden;position:relative;display:grid;grid-template-columns:1.2fr 1fr;min-height:600px}
 .popup-close {position:absolute;top:14px;right:14px;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.95);border:none;font-size:26px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:20;box-shadow:0 2px 8px rgba(0,0,0,0.15);line-height:1;font-weight:300}
-.popup-close:hover {background:#fff}
 
 .gallery {background:#0f1420;display:flex;flex-direction:column;color:#fff;min-height:600px;position:relative}
 .gallery-main {flex:1;position:relative;min-height:380px;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -23,16 +22,14 @@ body {margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sa
 .gallery-nav {position:absolute;bottom:14px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.6);padding:6px 14px;border-radius:20px;font-size:12px;color:#fff;font-weight:500;z-index:5}
 .gallery-arrows {position:absolute;top:50%;left:0;right:0;display:flex;justify-content:space-between;padding:0 12px;transform:translateY(-50%);pointer-events:none;z-index:5}
 .gallery-arrows button {width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,0.55);color:#fff;border:none;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;pointer-events:auto;line-height:1}
-.gallery-arrows button:hover {background:rgba(0,0,0,0.8)}
 .thumbs {display:flex;gap:6px;padding:10px;overflow-x:auto;background:#0a0e16}
-.thumbs img {width:90px;height:64px;object-fit:cover;border-radius:6px;cursor:pointer;opacity:0.65;transition:opacity .15s,outline .15s;flex-shrink:0;outline:2px solid transparent}
-.thumbs img:hover {opacity:1}
+.thumbs img {width:90px;height:64px;object-fit:cover;border-radius:6px;cursor:pointer;opacity:0.65;flex-shrink:0;outline:2px solid transparent}
 .thumbs img.active {opacity:1;outline:2px solid #0066ff}
 .promos-overlay {position:absolute;left:14px;bottom:50px;display:flex;gap:6px;flex-wrap:wrap;max-width:calc(100% - 28px);z-index:4}
 .promo-badge {background:#0066ff;color:#fff;font-size:12px;font-weight:600;padding:6px 11px;border-radius:6px;white-space:nowrap}
 .promo-badge.alt {background:rgba(255,255,255,0.95);color:#1a1a1a}
 
-.info {padding:30px 28px 24px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;max-height:90vh}
+.info {padding:30px 28px 24px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;max-height:90vh;background:#fff}
 .info-type {font-size:11px;font-weight:700;color:#0066ff;text-transform:uppercase;letter-spacing:0.1em}
 .info-name {font-size:28px;font-weight:800;line-height:1.15;margin:0;color:#1a1a1a}
 .info-addr {font-size:14px;color:#6b7280;line-height:1.4}
@@ -52,42 +49,35 @@ body {margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sa
 .plan-cell img {width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;background:#f3f4f6}
 .plan-cell .plan-rooms {font-size:11.5px;font-weight:600;color:#1a1a1a;margin-top:4px}
 .plan-cell .plan-area {font-size:11px;color:#9ca3af}
-.about {font-size:13.5px;color:#374151;line-height:1.55;padding-top:8px;border-top:1px solid #f1f1f1;max-height:90px;overflow:hidden;position:relative}
+.about {font-size:13.5px;color:#374151;line-height:1.55;padding-top:8px;border-top:1px solid #f1f1f1;max-height:90px;overflow:hidden}
 .about.expanded {max-height:none}
 .about-toggle {color:#0066ff;font-size:13px;cursor:pointer;font-weight:500;margin-top:4px;display:inline-block}
 .developer {font-size:11px;color:#9ca3af;text-transform:uppercase;letter-spacing:0.06em;font-weight:600}
 .actions {display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:auto;padding-top:14px}
-.btn {padding:14px 10px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:600;text-align:center;display:flex;align-items:center;justify-content:center;gap:6px;line-height:1.2;transition:opacity .15s,transform .15s}
-.btn:hover {opacity:0.85}
-.btn:active {transform:scale(0.98)}
+.btn {padding:14px 8px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:600;text-align:center;display:flex;align-items:center;justify-content:center;line-height:1.2}
 .btn-tel {background:#fff;color:#1a1a1a !important;border:1.5px solid #1a1a1a}
 .btn-wa {background:#25d366;color:#fff !important;border:1.5px solid #25d366}
 .btn-tg {background:#2aabee;color:#fff !important;border:1.5px solid #2aabee}
-.btn-max {background:#f29900;color:#fff !important;border:1.5px solid #f29900}
 
 @media (max-width:900px) {
   .popup {grid-template-columns:1fr;min-height:auto;border-radius:14px;margin:0 4px}
   .gallery {min-height:auto}
   .gallery-main {min-height:240px}
-  .info {padding:22px 18px 18px;gap:12px}
+  .info {padding:22px 18px 18px;gap:12px;max-height:none;overflow:visible}
   .info-name {font-size:22px}
   .info-price-range {font-size:18px}
-  .chars-grid {grid-template-columns:1fr 1fr;gap:10px 14px}
-  .plans {grid-template-columns:repeat(4,1fr);gap:6px}
   .actions {grid-template-columns:repeat(3,1fr);gap:6px}
-  .btn {padding:13px 6px;font-size:12px;flex-direction:column;gap:2px}
+  .btn {padding:13px 4px;font-size:12px}
   .bg-cards {grid-template-columns:1fr;padding:16px}
 }
 @media (max-width:480px) {
   .overlay {padding:10px 6px}
-  .popup {border-radius:12px}
   .info-name {font-size:20px}
   .gallery-main {min-height:200px}
   .thumbs img {width:72px;height:52px}
   .promos-overlay {bottom:48px}
-  .actions {grid-template-columns:1fr 1fr 1fr;gap:6px}
-  .btn {padding:11px 4px;font-size:11.5px}
   .plans {grid-template-columns:repeat(2,1fr)}
+  .btn {padding:11px 4px;font-size:11.5px}
 }
 
 .note {position:fixed;top:10px;left:50%;transform:translateX(-50%);background:#fff;border-radius:10px;padding:9px 16px;font-size:12.5px;color:#374151;box-shadow:0 4px 14px rgba(0,0,0,0.12);z-index:200;white-space:nowrap}
@@ -97,7 +87,7 @@ body {margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sa
 </head>
 <body>
 
-<div class="note"><b>Черновик попапа</b> &middot; ЖК «Звезда Столицы 2» &middot; так открывается по клику на карточку в каталоге</div>
+<div class="note"><b>Черновик попапа</b> &middot; ЖК «Звезда Столицы 2» &middot; так открывается по клику на карточку</div>
 
 <div class="bg-cards">
   <div class="bg-card"><div class="img-stub"></div><div class="body-stub">Карточка ЖК</div></div>
@@ -114,8 +104,8 @@ body {margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sa
       <div class="gallery-main">
         <img id="mainImg" src="" alt="">
         <div class="gallery-arrows">
-          <button id="prevBtn" aria-label="prev">&lsaquo;</button>
-          <button id="nextBtn" aria-label="next">&rsaquo;</button>
+          <button id="prevBtn">&lsaquo;</button>
+          <button id="nextBtn">&rsaquo;</button>
         </div>
         <div class="gallery-nav" id="galNav">1 / 1</div>
         <div class="promos-overlay" id="promosBox"></div>
@@ -123,147 +113,149 @@ body {margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sa
       <div class="thumbs" id="thumbs"></div>
     </div>
 
-    <div class="info" id="info"></div>
+    <div class="info" id="info">Загрузка...</div>
   </div>
 </div>
 
+<script type="application/json" id="popup-config">{"data": {"name": {"type": "ЖК", "name": "Звезда Столицы 2"}, "pref": {"type": "ЖК", "name": "Звезда Столицы 2"}, "address": "Ростов-на-Дону, улица Нансена", "breadcrumbs": [{"text": "Новостройки в Ростове‑на‑Дону", "url": "/rostov-na-donu"}, {"text": "Новостройки", "url": "/rostov-na-donu/novostrojki"}, {"text": "ЖК «Звезда Столицы 2»", "url": "/rostov-na-donu/novostrojka/zvezda-stolicy-2-662"}], "price_range": "от 4,4 до 11,2 млн ₽", "price_per_meter": "от 120 000 до 186 000 ₽/м²", "mortgage_from": "В ипотеку от 18 304 ₽/мес", "characteristics": {"settlement": "2028", "class": "Бизнес", "buildings": "4 дома", "floors": "25", "areas": "от 24 до 77 м²", "ceiling": "2,7 м", "material": "Монолит-кирпич", "parking": "Наземная, Подземная"}, "flats": [{"rooms": "Студия", "area": "24 - 32 м²", "price": "4,4 – 5,5 млн ₽", "count": 292}, {"rooms": "1-комнатная", "area": "41 - 49 м²", "price": "5,6 – 8 млн ₽", "count": 216}, {"rooms": "2-комнатная", "area": "48 - 67 м²", "price": "6,8 – 9,9 млн ₽", "count": 215}, {"rooms": "3-комнатная", "area": "77 м²", "price": "10,7 – 11,2 млн ₽", "count": 24}], "promos": [{"name": "Ипотека от 5%", "desc": "<p>Ипотечные условия для всех, ради которых не нужно менять свою жизнь:<\/p>\n<ul>\n<li>Ставка от 5%<\/li>\n<li>Платёж от 14 580 ₽/мес.<\/li>\n<li>Первоначальный взнос от 20,1%<\/li>\n<li>Количество квартир по спецусловиям ограничено.<\/li>\n<\/ul>\n<p>Подробности уточняйте в отделе продаж застройщика. Указанная информация носит информационный характер. Не является публичной офертой.<\/p>\n", "until": "до 31 мая 2026"}, {"name": "Ипотека 4%", "desc": "<p>Эксклюзивные условия на покупку квартиры:<\/p>\n<ul>\n<li>Ставка от 4% — на период строительства<\/li>\n<li>Первоначальный взнос — от 20,1%<\/li>\n<li>Ежемесячный платёж — от 16 316 ₽<\/li>\n<\/ul>\n<p>Подобные условия — редкость на рынке недвижимости. Успейте воспользоваться до повышения ставок!<\/p>\n<p>Подробности уточняйте в отделе продаж застройщика. Указанная информация носит информационный характер. Не является публичной офертой.<\/p>\n", "until": "до 31 мая 2026"}, {"name": "Ремонт «под ключ» в подарок", "desc": "<p>Успейте купить квартиру сейчас и получить ремонт в подарок!\nНа выбор предлагается два стиля интерьера, которые отличаются цветовой гаммой. Ваша квартира полностью готова к заселению - Вам останется только расставить мебель и заняться созданием уюта.<\/p>\n<p>Подробности уточняйте в отделе продаж застройщика. Указанная информация носит информационный характер. Не является публичной офертой.<\/p>\n", "until": "до 31 мая 2026"}, {"name": "Скидка до 2,6 млн ₽", "desc": "<p>Снижаем цены на квартиры до 2 600 000 рублей!<\/p>\n<p>Подробности уточняйте в отделе продаж застройщика. Указанная информация носит информационный характер. Не является публичной офертой.<\/p>\n", "until": "до 31 мая 2026"}, {"name": "Скидка до 18 000 ₽/м²", "desc": "<p>Только 18 квартир со скидкой до 18000 ₽/м²!<\/p>\n<p>Подробности уточняйте в отделе продаж застройщика. Указанная информация носит информационный характер. Не является публичной офертой.<\/p>\n", "until": "до 31 мая 2026"}], "about": "<p>ЖК «Звезда Столицы 2» - новый проект бизнес-класса в центре Ростова-на-Дону. Жилой комплекс состоит из четырёх 25-ти этажных домов с благоустроенной территорией для комфортной жизни. Между первым и вторым корпусом на крыше организована специальная площадка для отдыха жителей, откуда можно полюбоваться красотой звездного неба! Для самых маленьких резидентов комплекса предусмотрен собственный детский садик.<\/p>\n<p>На первых этажах комплекса расположены помещения в современном формате «Step inclusive», объединяющие воедино образовательный и коммерческий кластер, коворкинг, кафе и рестораны известных брендов. Также проектом предусмотрено гранд-лобби с охраной, сервис-менеджментом, местами для хранения заказов и комфортной зоной ожидания.<\/p>\n<p>Дома построены по долговечной монолитно-кирпичной технологии, а внешний стиль фасадов разработан архитектурным бюро GASP®. В концепции бежево-коричневых фасадов заложена тема постоянного движения и стремления к всестороннему развитию. Дополняет изысканную архитектуру стильная ночная подсветка домов. Также на фасадах установлены корзины под внешние блоки кондиционеров.<\/p>\n<p>ЖК «Звезда Столицы 2» - дома с высочайшим классом энергоэффективности А++, что позволит жильцам сократить расходы на оплату коммунальных услуг. <\/p>\n<h3>Расположение ЖК «Звезда Столицы 2»<\/h3>\n<p>ЖК «Звезда Столицы 2» расположен в центральной части Ростова-на-Дону на пересечении улиц Нансена и Шеболдаева. В пешей доступности:<\/p>\n<ul>\n<li>Детский садик «Мамино солнышко».<\/li>\n<li>Лицей №69, школа №32, 2 частные школы.<\/li>\n<li>Ростовский государственный университет путей сообщения, Промышленно-технический колледж, Академия психологии и педагогики.<\/li>\n<li>Поликлиника РГУПС, городская поликлиника №12.<\/li>\n<li>Стадион «Труд», фитнес-клуб, сетевые супермаркеты, автосервис, стоматология, кафе, зоомагазин.<\/li>\n<\/ul>\n<p>За 7 минут можно доехать до 2 ТЦ - «РИО» и «Горизонт», выставочного центра «ДонЭкспоцентр». В пределах 5-ти минут езды расположен Комсомольский сквер и Студенческий парк ДГТУ, где можно приятно провести время. Доехать до Главного авто и Ж/Д вокзала можно в среднем за 10 минут. <\/p>\n<p>Вокруг ЖК расположено несколько остановок общественного транспорта. Уехать в город можно как со стороны ул. Нансена/проспект Буденновский (маршруты № 61, 453, 456), так и с ул. Шеболдаева, где курсирует более 20 маршрутов. <\/p>\n<h3>Социальная и внутренняя инфраструктура<\/h3>\n<p>Ухоженный двор жилого комплекса включает наличие зеленых газонов и кустарников. На закрытой территории предусмотрены детские и спортивные площадки с травмобезопасным покрытием, зоны отдыха для взрослого населения. По всему периметру организовано круглосуточное видеонаблюдение, а вход осуществляется через систему «умный дом». <\/p>\n<p>Для автовладельцев предусмотрен подземно-наземный паркинг, спуститься туда можно прямо на лифте. Здесь также имеются устройства для зарядки электрокаров. <\/p>\n<h3>Отделка квартир<\/h3>\n<p>Приобрести квартиру в ЖК «Звезда Столицы 2» можно в 3-х вариантах отделки:<\/p>\n<ul>\n<li>черновая;<\/li>\n<li>whitebox;<\/li>\n<li>ремонт «под ключ».<\/li>\n<\/ul>\n", "developer": "ДОННЕФТЕСТРОЙ", "finishing_groups": [{"name": "Ремонт «под ключ»", "type": "turn_key"}, {"name": "White Box", "type": "pre_fine"}, {"name": "Без отделки", "type": "without"}], "images": ["https://img.gid.house/rs:fill:1400:0:0/plain/production/a3399159143ff55dc286dd405fc4f37f23af9.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/c3c48dd409b487c02d0743368255420c90192.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/f5fe87eb078a0e67776fb8ec81ceb3ea7b220.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/f423d810959220a41c6596fe277cbd06f15aa.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/3b41bbe58b6b2efd8b5172a80a4dcd0021c84.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/b9d1ad597b468cc9886f028030e340429f85e.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/e894edc8f192b99c5ed940fdeb38152da5f6d.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/ac1d45337c6877fe948f17b8f6e669b12719d.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/046cfeb7fa51fc24daf19df2e9173f6a15390.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/1140779a884f9d5befd458f4e01e6b26d0074.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/09be58c4d3104a5a0a93e102140d0e593b1ec.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/3dfb2d26bfaa57d3c71984f647932c09fdf9a.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/8fd73f8b0f9c4c693827ffb0efd1f336d778f.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/015870ce69fd4bacd915a62f986e136adb1af.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/a4d89e09906a4dbca1fe8e8b2bb4dd1834f06.jpg"], "thumbs": ["https://img.gid.house/rs:fill:300:0:0/plain/production/a3399159143ff55dc286dd405fc4f37f23af9.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/c3c48dd409b487c02d0743368255420c90192.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/f5fe87eb078a0e67776fb8ec81ceb3ea7b220.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/f423d810959220a41c6596fe277cbd06f15aa.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/3b41bbe58b6b2efd8b5172a80a4dcd0021c84.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/b9d1ad597b468cc9886f028030e340429f85e.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/e894edc8f192b99c5ed940fdeb38152da5f6d.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/ac1d45337c6877fe948f17b8f6e669b12719d.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/046cfeb7fa51fc24daf19df2e9173f6a15390.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/1140779a884f9d5befd458f4e01e6b26d0074.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/09be58c4d3104a5a0a93e102140d0e593b1ec.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/3dfb2d26bfaa57d3c71984f647932c09fdf9a.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/8fd73f8b0f9c4c693827ffb0efd1f336d778f.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/015870ce69fd4bacd915a62f986e136adb1af.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/a4d89e09906a4dbca1fe8e8b2bb4dd1834f06.jpg"], "source_url": "https://gid.house/novostrojka/zvezda-stolicy-2-662"}, "plans": [{"rooms": "Студия", "area": "24 м²", "plan": "https://img.gid.house/rs:fill:300:0:0/plain/production/a3399159143ff55dc286dd405fc4f37f23af9.jpg"}, {"rooms": "1-комн.", "area": "41 м²", "plan": "https://img.gid.house/rs:fill:300:0:0/plain/production/c3c48dd409b487c02d0743368255420c90192.jpg"}, {"rooms": "2-комн.", "area": "48 м²", "plan": "https://img.gid.house/rs:fill:300:0:0/plain/production/f5fe87eb078a0e67776fb8ec81ceb3ea7b220.jpg"}, {"rooms": "3-комн.", "area": "77 м²", "plan": "https://img.gid.house/rs:fill:300:0:0/plain/production/f423d810959220a41c6596fe277cbd06f15aa.jpg"}], "wa_phone": "79281022795", "tel_display": "+7 928 102-27-95", "wa_link": "https://wa.me/79281022795?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%96%D0%9A%20%D0%97%D0%B2%D0%B5%D0%B7%D0%B4%D0%B0%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B8%D1%86%D1%8B%C2%A02.%20%D0%9F%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%20%D0%BF%D0%BE%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D1%8E%20%D0%B8%20%D1%86%D0%B5%D0%BD%D0%B5.", "tg_link": "https://t.me/m2_komstroy"}</script>
+
 <script>
-var DATA = {"name": {"type": "ЖК", "name": "Звезда Столицы 2"}, "pref": {"type": "ЖК", "name": "Звезда Столицы 2"}, "address": "Ростов-на-Дону, улица Нансена", "breadcrumbs": [{"text": "Новостройки в Ростове‑на‑Дону", "url": "/rostov-na-donu"}, {"text": "Новостройки", "url": "/rostov-na-donu/novostrojki"}, {"text": "ЖК «Звезда Столицы 2»", "url": "/rostov-na-donu/novostrojka/zvezda-stolicy-2-662"}], "price_range": "от 4,4 до 11,2 млн ₽", "price_per_meter": "от 120 000 до 186 000 ₽/м²", "mortgage_from": "В ипотеку от 18 304 ₽/мес", "characteristics": {"settlement": "2028", "class": "Бизнес", "buildings": "4 дома", "floors": "25", "areas": "от 24 до 77 м²", "ceiling": "2,7 м", "material": "Монолит-кирпич", "parking": "Наземная, Подземная"}, "flats": [{"rooms": "Студия", "area": "24 - 32 м²", "price": "4,4 – 5,5 млн ₽", "count": 292}, {"rooms": "1-комнатная", "area": "41 - 49 м²", "price": "5,6 – 8 млн ₽", "count": 216}, {"rooms": "2-комнатная", "area": "48 - 67 м²", "price": "6,8 – 9,9 млн ₽", "count": 215}, {"rooms": "3-комнатная", "area": "77 м²", "price": "10,7 – 11,2 млн ₽", "count": 24}], "promos": [{"name": "Ипотека от 5%", "desc": "<p>Ипотечные условия для всех, ради которых не нужно менять свою жизнь:</p>\n<ul>\n<li>Ставка от 5%</li>\n<li>Платёж от 14 580 ₽/мес.</li>\n<li>Первоначальный взнос от 20,1%</li>\n<li>Количество квартир по спецусловиям ограничено.</li>\n</ul>\n<p>Подробности уточняйте в отделе продаж застройщика. Указанная информация носит информационный характер. Не является публичной офертой.</p>\n", "until": "до 31 мая 2026"}, {"name": "Ипотека 4%", "desc": "<p>Эксклюзивные условия на покупку квартиры:</p>\n<ul>\n<li>Ставка от 4% — на период строительства</li>\n<li>Первоначальный взнос — от 20,1%</li>\n<li>Ежемесячный платёж — от 16 316 ₽</li>\n</ul>\n<p>Подобные условия — редкость на рынке недвижимости. Успейте воспользоваться до повышения ставок!</p>\n<p>Подробности уточняйте в отделе продаж застройщика. Указанная информация носит информационный характер. Не является публичной офертой.</p>\n", "until": "до 31 мая 2026"}, {"name": "Ремонт «под ключ» в подарок", "desc": "<p>Успейте купить квартиру сейчас и получить ремонт в подарок!\nНа выбор предлагается два стиля интерьера, которые отличаются цветовой гаммой. Ваша квартира полностью готова к заселению - Вам останется только расставить мебель и заняться созданием уюта.</p>\n<p>Подробности уточняйте в отделе продаж застройщика. Указанная информация носит информационный характер. Не является публичной офертой.</p>\n", "until": "до 31 мая 2026"}, {"name": "Скидка до 2,6 млн ₽", "desc": "<p>Снижаем цены на квартиры до 2 600 000 рублей!</p>\n<p>Подробности уточняйте в отделе продаж застройщика. Указанная информация носит информационный характер. Не является публичной офертой.</p>\n", "until": "до 31 мая 2026"}, {"name": "Скидка до 18 000 ₽/м²", "desc": "<p>Только 18 квартир со скидкой до 18000 ₽/м²!</p>\n<p>Подробности уточняйте в отделе продаж застройщика. Указанная информация носит информационный характер. Не является публичной офертой.</p>\n", "until": "до 31 мая 2026"}], "about": "<p>ЖК «Звезда Столицы 2» - новый проект бизнес-класса в центре Ростова-на-Дону. Жилой комплекс состоит из четырёх 25-ти этажных домов с благоустроенной территорией для комфортной жизни. Между первым и вторым корпусом на крыше организована специальная площадка для отдыха жителей, откуда можно полюбоваться красотой звездного неба! Для самых маленьких резидентов комплекса предусмотрен собственный детский садик.</p>\n<p>На первых этажах комплекса расположены помещения в современном формате «Step inclusive», объединяющие воедино образовательный и коммерческий кластер, коворкинг, кафе и рестораны известных брендов. Также проектом предусмотрено гранд-лобби с охраной, сервис-менеджментом, местами для хранения заказов и комфортной зоной ожидания.</p>\n<p>Дома построены по долговечной монолитно-кирпичной технологии, а внешний стиль фасадов разработан архитектурным бюро GASP®. В концепции бежево-коричневых фасадов заложена тема постоянного движения и стремления к всестороннему развитию. Дополняет изысканную архитектуру стильная ночная подсветка домов. Также на фасадах установлены корзины под внешние блоки кондиционеров.</p>\n<p>ЖК «Звезда Столицы 2» - дома с высочайшим классом энергоэффективности А++, что позволит жильцам сократить расходы на оплату коммунальных услуг. </p>\n<h3>Расположение ЖК «Звезда Столицы 2»</h3>\n<p>ЖК «Звезда Столицы 2» расположен в центральной части Ростова-на-Дону на пересечении улиц Нансена и Шеболдаева. В пешей доступности:</p>\n<ul>\n<li>Детский садик «Мамино солнышко».</li>\n<li>Лицей №69, школа №32, 2 частные школы.</li>\n<li>Ростовский государственный университет путей сообщения, Промышленно-технический колледж, Академия психологии и педагогики.</li>\n<li>Поликлиника РГУПС, городская поликлиника №12.</li>\n<li>Стадион «Труд», фитнес-клуб, сетевые супермаркеты, автосервис, стоматология, кафе, зоомагазин.</li>\n</ul>\n<p>За 7 минут можно доехать до 2 ТЦ - «РИО» и «Горизонт», выставочного центра «ДонЭкспоцентр». В пределах 5-ти минут езды расположен Комсомольский сквер и Студенческий парк ДГТУ, где можно приятно провести время. Доехать до Главного авто и Ж/Д вокзала можно в среднем за 10 минут. </p>\n<p>Вокруг ЖК расположено несколько остановок общественного транспорта. Уехать в город можно как со стороны ул. Нансена/проспект Буденновский (маршруты № 61, 453, 456), так и с ул. Шеболдаева, где курсирует более 20 маршрутов. </p>\n<h3>Социальная и внутренняя инфраструктура</h3>\n<p>Ухоженный двор жилого комплекса включает наличие зеленых газонов и кустарников. На закрытой территории предусмотрены детские и спортивные площадки с травмобезопасным покрытием, зоны отдыха для взрослого населения. По всему периметру организовано круглосуточное видеонаблюдение, а вход осуществляется через систему «умный дом». </p>\n<p>Для автовладельцев предусмотрен подземно-наземный паркинг, спуститься туда можно прямо на лифте. Здесь также имеются устройства для зарядки электрокаров. </p>\n<h3>Отделка квартир</h3>\n<p>Приобрести квартиру в ЖК «Звезда Столицы 2» можно в 3-х вариантах отделки:</p>\n<ul>\n<li>черновая;</li>\n<li>whitebox;</li>\n<li>ремонт «под ключ».</li>\n</ul>\n", "developer": "ДОННЕФТЕСТРОЙ", "finishing_groups": [{"name": "Ремонт «под ключ»", "type": "turn_key"}, {"name": "White Box", "type": "pre_fine"}, {"name": "Без отделки", "type": "without"}], "images": ["https://img.gid.house/rs:fill:1400:0:0/plain/production/a3399159143ff55dc286dd405fc4f37f23af9.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/c3c48dd409b487c02d0743368255420c90192.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/f5fe87eb078a0e67776fb8ec81ceb3ea7b220.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/f423d810959220a41c6596fe277cbd06f15aa.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/3b41bbe58b6b2efd8b5172a80a4dcd0021c84.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/b9d1ad597b468cc9886f028030e340429f85e.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/e894edc8f192b99c5ed940fdeb38152da5f6d.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/ac1d45337c6877fe948f17b8f6e669b12719d.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/046cfeb7fa51fc24daf19df2e9173f6a15390.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/1140779a884f9d5befd458f4e01e6b26d0074.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/09be58c4d3104a5a0a93e102140d0e593b1ec.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/3dfb2d26bfaa57d3c71984f647932c09fdf9a.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/8fd73f8b0f9c4c693827ffb0efd1f336d778f.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/015870ce69fd4bacd915a62f986e136adb1af.jpg", "https://img.gid.house/rs:fill:1400:0:0/plain/production/a4d89e09906a4dbca1fe8e8b2bb4dd1834f06.jpg"], "thumbs": ["https://img.gid.house/rs:fill:300:0:0/plain/production/a3399159143ff55dc286dd405fc4f37f23af9.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/c3c48dd409b487c02d0743368255420c90192.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/f5fe87eb078a0e67776fb8ec81ceb3ea7b220.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/f423d810959220a41c6596fe277cbd06f15aa.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/3b41bbe58b6b2efd8b5172a80a4dcd0021c84.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/b9d1ad597b468cc9886f028030e340429f85e.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/e894edc8f192b99c5ed940fdeb38152da5f6d.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/ac1d45337c6877fe948f17b8f6e669b12719d.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/046cfeb7fa51fc24daf19df2e9173f6a15390.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/1140779a884f9d5befd458f4e01e6b26d0074.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/09be58c4d3104a5a0a93e102140d0e593b1ec.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/3dfb2d26bfaa57d3c71984f647932c09fdf9a.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/8fd73f8b0f9c4c693827ffb0efd1f336d778f.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/015870ce69fd4bacd915a62f986e136adb1af.jpg", "https://img.gid.house/rs:fill:300:0:0/plain/production/a4d89e09906a4dbca1fe8e8b2bb4dd1834f06.jpg"], "source_url": "https://gid.house/novostrojka/zvezda-stolicy-2-662"};
-var PLANS = [{"rooms": "Студия", "area": "24 м²", "plan": "https://img.gid.house/rs:fill:300:0:0/plain/production/a3399159143ff55dc286dd405fc4f37f23af9.jpg"}, {"rooms": "1-комн.", "area": "41 м²", "plan": "https://img.gid.house/rs:fill:300:0:0/plain/production/c3c48dd409b487c02d0743368255420c90192.jpg"}, {"rooms": "2-комн.", "area": "48 м²", "plan": "https://img.gid.house/rs:fill:300:0:0/plain/production/f5fe87eb078a0e67776fb8ec81ceb3ea7b220.jpg"}, {"rooms": "3-комн.", "area": "77 м²", "plan": "https://img.gid.house/rs:fill:300:0:0/plain/production/f423d810959220a41c6596fe277cbd06f15aa.jpg"}];
-var WA_PHONE = '79281022795';
-var TEL_DISPLAY = '+7 928 102-27-95';
-var WA_LINK = 'https://wa.me/79281022795?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%96%D0%9A%20%D0%97%D0%B2%D0%B5%D0%B7%D0%B4%D0%B0%20%D0%A1%D1%82%D0%BE%D0%BB%D0%B8%D1%86%D1%8B%C2%A02.%20%D0%9F%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%20%D0%BF%D0%BE%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D1%8E%20%D0%B8%20%D1%86%D0%B5%D0%BD%D0%B5.';
-var TG_LINK = 'https://t.me/m2_komstroy';
-var MAX_LINK = '#max-placeholder';
-
 (function(){
-  function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]})}
+  try {
+    var CFG = JSON.parse(document.getElementById('popup-config').textContent);
+    var DATA = CFG.data;
+    var PLANS = CFG.plans;
+    var WA_PHONE = CFG.wa_phone;
+    var TEL_DISPLAY = CFG.tel_display;
+    var WA_LINK = CFG.wa_link;
+    var TG_LINK = CFG.tg_link;
 
-  var rawName = DATA.name && DATA.name.name ? DATA.name.name : DATA.name;
-  var name = String(rawName).replace(/ /g,' ');
-  var addr = (DATA.address || '').replace(/ /g,' ');
+    function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]})}
 
-  // галерея
-  var imgs = DATA.images || [];
-  var thumbs = DATA.thumbs || [];
-  var cur = 0;
-  var main = document.getElementById('mainImg');
-  var galNav = document.getElementById('galNav');
-  var tbox = document.getElementById('thumbs');
-  function show(i){
-    cur = (i + imgs.length) % imgs.length;
-    main.src = imgs[cur];
-    galNav.textContent = (cur + 1) + ' / ' + imgs.length;
-    var ts = tbox.querySelectorAll('img');
-    for (var k = 0; k < ts.length; k++) {
-      if (k === cur) ts[k].classList.add('active'); else ts[k].classList.remove('active');
+    var rawName = DATA.name && DATA.name.name ? DATA.name.name : DATA.name;
+    var name = String(rawName);
+    var addr = String(DATA.address || '');
+
+    var imgs = DATA.images || [];
+    var thumbs = DATA.thumbs || [];
+    var cur = 0;
+    var main = document.getElementById('mainImg');
+    var galNav = document.getElementById('galNav');
+    var tbox = document.getElementById('thumbs');
+
+    function show(i){
+      if (!imgs.length) return;
+      cur = (i + imgs.length) % imgs.length;
+      main.src = imgs[cur];
+      galNav.textContent = (cur + 1) + ' / ' + imgs.length;
+      var ts = tbox.querySelectorAll('img');
+      for (var k = 0; k < ts.length; k++) {
+        if (k === cur) ts[k].classList.add('active'); else ts[k].classList.remove('active');
+      }
     }
-  }
-  for (var i = 0; i < thumbs.length; i++) {
-    var im = document.createElement('img');
-    im.src = thumbs[i];
-    (function(idx){ im.onclick = function(){ show(idx) } })(i);
-    tbox.appendChild(im);
-  }
-  document.getElementById('prevBtn').onclick = function(){ show(cur - 1) };
-  document.getElementById('nextBtn').onclick = function(){ show(cur + 1) };
-  show(0);
-
-  // промо
-  var promosBox = document.getElementById('promosBox');
-  var promos = (DATA.promos || []).slice(0, 3);
-  for (var p = 0; p < promos.length; p++) {
-    var b = document.createElement('span');
-    b.className = 'promo-badge' + (p > 0 ? ' alt' : '');
-    b.textContent = String(promos[p].name).trim();
-    promosBox.appendChild(b);
-  }
-
-  // info
-  var info = document.getElementById('info');
-  var chars = DATA.characteristics || {};
-  var flats = DATA.flats || [];
-  var priceRange = (DATA.price_range || '').replace(/ /g, ' ');
-  var mortgage = (DATA.mortgage_from || '').replace(/ /g, ' ');
-
-  // flats row
-  var flatsHtml = '';
-  for (var f = 0; f < flats.length; f++) {
-    var fl = flats[f];
-    flatsHtml += '<span class="room">' + esc(fl.rooms) + '</span>';
-    flatsHtml += '<span class="area">' + esc(fl.area || '') + '</span>';
-    flatsHtml += '<span class="price">' + esc(String(fl.price).replace(/ /g, ' ')) + '</span>';
-  }
-
-  // chars grid
-  var charRows = [
-    ['Класс жилья', chars['class']],
-    ['Сдача', chars.settlement],
-    ['Домов в жк', chars.buildings],
-    ['Этажность', chars.floors],
-    ['Метражи', chars.areas],
-    ['Высота потолков', chars.ceiling],
-    ['Материал стен', chars.material],
-    ['Парковка', chars.parking]
-  ];
-  var charsHtml = '';
-  for (var c = 0; c < charRows.length; c++) {
-    if (charRows[c][1]) {
-      charsHtml += '<div><b>' + esc(charRows[c][0]) + '</b><span>' + esc(charRows[c][1]) + '</span></div>';
+    for (var i = 0; i < thumbs.length; i++) {
+      var im = document.createElement('img');
+      im.src = thumbs[i];
+      (function(idx){ im.onclick = function(){ show(idx); }; })(i);
+      tbox.appendChild(im);
     }
-  }
+    document.getElementById('prevBtn').onclick = function(){ show(cur - 1); };
+    document.getElementById('nextBtn').onclick = function(){ show(cur + 1); };
+    if (imgs.length) show(0);
 
-  // planning grid
-  var plansHtml = '';
-  for (var pp = 0; pp < PLANS.length; pp++) {
-    var pl = PLANS[pp];
-    plansHtml += '<div class="plan-cell">';
-    plansHtml += '<img src="' + esc(pl.plan) + '" alt="' + esc(pl.rooms) + '">';
-    plansHtml += '<div class="plan-rooms">' + esc(pl.rooms) + '</div>';
-    plansHtml += '<div class="plan-area">' + esc(pl.area) + '</div>';
-    plansHtml += '</div>';
-  }
+    var promosBox = document.getElementById('promosBox');
+    var promos = (DATA.promos || []).slice(0, 3);
+    for (var p = 0; p < promos.length; p++) {
+      var b = document.createElement('span');
+      b.className = 'promo-badge' + (p > 0 ? ' alt' : '');
+      b.textContent = String(promos[p].name).trim();
+      promosBox.appendChild(b);
+    }
 
-  var aboutFull = String(DATA.about || '').replace(/ /g, ' ');
-  var aboutShort = aboutFull.slice(0, 220);
+    var info = document.getElementById('info');
+    var chars = DATA.characteristics || {};
+    var flats = DATA.flats || [];
+    var priceRange = String(DATA.price_range || '');
+    var mortgage = String(DATA.mortgage_from || '');
 
-  // финальная сборка через простой concat
-  var html = '';
-  html += '<div class="info-type">Жилой комплекс</div>';
-  html += '<h2 class="info-name">' + esc(name) + '</h2>';
-  html += '<div class="info-addr">' + esc(addr) + '</div>';
-  html += '<div class="info-price-row"><span class="info-price-range">' + esc(priceRange) + '</span></div>';
-  if (mortgage) html += '<div class="info-mortgage">' + esc(mortgage) + '</div>';
-  if (flatsHtml) html += '<div class="info-table">' + flatsHtml + '</div>';
-  if (charsHtml) html += '<div class="chars-grid">' + charsHtml + '</div>';
-  if (plansHtml) {
-    html += '<div class="section-label">Типовые планировки</div>';
-    html += '<div class="plans">' + plansHtml + '</div>';
-  }
-  if (aboutShort) {
-    html += '<div class="about" id="aboutBox">' + esc(aboutShort) + (aboutFull.length > aboutShort.length ? '...' : '');
-    if (aboutFull.length > aboutShort.length) html += ' <span class="about-toggle" id="aboutToggle">читать дальше</span>';
+    var flatsHtml = '';
+    for (var f = 0; f < flats.length; f++) {
+      var fl = flats[f];
+      flatsHtml += '<span class="room">' + esc(fl.rooms) + '</span>';
+      flatsHtml += '<span class="area">' + esc(fl.area || '') + '</span>';
+      flatsHtml += '<span class="price">' + esc(String(fl.price)) + '</span>';
+    }
+
+    var charRows = [
+      ['Класс жилья', chars['class']],
+      ['Сдача', chars.settlement],
+      ['Домов в жк', chars.buildings],
+      ['Этажность', chars.floors],
+      ['Метражи', chars.areas],
+      ['Высота потолков', chars.ceiling],
+      ['Материал стен', chars.material],
+      ['Парковка', chars.parking]
+    ];
+    var charsHtml = '';
+    for (var c = 0; c < charRows.length; c++) {
+      if (charRows[c][1]) {
+        charsHtml += '<div><b>' + esc(charRows[c][0]) + '</b><span>' + esc(charRows[c][1]) + '</span></div>';
+      }
+    }
+
+    var plansHtml = '';
+    for (var pp = 0; pp < PLANS.length; pp++) {
+      var pl = PLANS[pp];
+      plansHtml += '<div class="plan-cell">';
+      plansHtml += '<img src="' + esc(pl.plan) + '" alt="' + esc(pl.rooms) + '">';
+      plansHtml += '<div class="plan-rooms">' + esc(pl.rooms) + '</div>';
+      plansHtml += '<div class="plan-area">' + esc(pl.area) + '</div>';
+      plansHtml += '</div>';
+    }
+
+    var aboutFull = String(DATA.about || '');
+    var aboutShort = aboutFull.slice(0, 220);
+
+    var html = '';
+    html += '<div class="info-type">Жилой комплекс</div>';
+    html += '<h2 class="info-name">' + esc(name) + '</h2>';
+    html += '<div class="info-addr">' + esc(addr) + '</div>';
+    if (priceRange) html += '<div class="info-price-row"><span class="info-price-range">' + esc(priceRange) + '</span></div>';
+    if (mortgage) html += '<div class="info-mortgage">' + esc(mortgage) + '</div>';
+    if (flatsHtml) html += '<div class="info-table">' + flatsHtml + '</div>';
+    if (charsHtml) html += '<div class="chars-grid">' + charsHtml + '</div>';
+    if (plansHtml) {
+      html += '<div class="section-label">Типовые планировки</div>';
+      html += '<div class="plans">' + plansHtml + '</div>';
+    }
+    if (aboutShort) {
+      html += '<div class="about" id="aboutBox">' + esc(aboutShort);
+      if (aboutFull.length > aboutShort.length) html += '... <span class="about-toggle" id="aboutToggle">читать дальше</span>';
+      html += '</div>';
+    }
+    if (DATA.developer) html += '<div class="developer">' + esc(DATA.developer) + '</div>';
+    html += '<div class="actions">';
+    html += '<a class="btn btn-tel" href="tel:+' + WA_PHONE + '">' + TEL_DISPLAY + '</a>';
+    html += '<a class="btn btn-wa" href="' + WA_LINK + '" target="_blank" rel="noopener">WhatsApp</a>';
+    html += '<a class="btn btn-tg" href="' + TG_LINK + '" target="_blank" rel="noopener">Telegram</a>';
     html += '</div>';
+
+    info.innerHTML = html;
+
+    var tg = document.getElementById('aboutToggle');
+    if (tg) tg.onclick = function(){
+      var box = document.getElementById('aboutBox');
+      box.classList.add('expanded');
+      box.innerHTML = esc(aboutFull);
+    };
+
+    document.querySelector('.popup-close').onclick = function(){
+      document.getElementById('overlay').style.display = 'none';
+    };
+  } catch (e) {
+    var info = document.getElementById('info');
+    if (info) info.innerHTML = '<div style="padding:20px;color:#d32"><b>JS error:</b><br>' + String(e.message || e) + '</div>';
   }
-  if (DATA.developer) html += '<div class="developer">' + esc(DATA.developer) + '</div>';
-  html += '<div class="actions">';
-  html += '<a class="btn btn-tel" href="tel:+' + WA_PHONE + '">📞 ' + TEL_DISPLAY + '</a>';
-  html += '<a class="btn btn-wa" href="' + WA_LINK + '" target="_blank" rel="noopener">WhatsApp</a>';
-  html += '<a class="btn btn-tg" href="' + TG_LINK + '" target="_blank" rel="noopener">Telegram</a>';
-  html += '</div>';
-
-  info.innerHTML = html;
-
-  var tg = document.getElementById('aboutToggle');
-  if (tg) tg.onclick = function(){
-    var box = document.getElementById('aboutBox');
-    box.classList.add('expanded');
-    box.innerHTML = esc(aboutFull);
-  };
-
-  document.querySelector('.popup-close').onclick = function(){
-    document.getElementById('overlay').style.display = 'none';
-  };
 })();
 </script>
 
