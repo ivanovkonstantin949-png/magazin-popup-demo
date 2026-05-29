@@ -75,6 +75,10 @@
           var idx = state[key].indexOf(v);
           if(this.checked){if(idx===-1) state[key].push(v)} else {if(idx>-1) state[key].splice(idx,1)}
           updateSelectText(key); apply();
+          if(window.matchMedia && window.matchMedia('(max-width:900px)').matches){
+            var sel = wrap.querySelector('.mn-select');
+            if(sel) sel.classList.remove('mn-open');
+          }
         });
         var span = document.createElement('span');
         span.textContent = key==='rooms' ? (ROOM_LABEL[val]||val) : (key==='year' ? String(val)+' год' : val);
@@ -259,10 +263,11 @@
     var thumbs = overlay.querySelector('#mn-pop-thumbs');
     var nav = overlay.querySelector('#mn-pop-galnav');
 
+    function hires(u){return String(u||'').replace(/\/rs:fill:\d+:\d+:\d+\//, '/rs:fill:1400:0:0/')}
     function showImg(i){
       if(!gallery.length) return;
       galCur = (i + gallery.length) % gallery.length;
-      mainImg.src = gallery[galCur];
+      mainImg.src = hires(gallery[galCur]);
       nav.textContent = (galCur+1)+' / '+gallery.length;
       var ts = thumbs.querySelectorAll('img');
       for(var k=0;k<ts.length;k++) ts[k].classList.toggle('mn-active', k===galCur);
@@ -323,6 +328,22 @@
             '<div class="mn-pop-plan-area">'+esc(pl.area||'')+'</div>'+
           '</div>';
         plansBox.appendChild(card);
+      });
+      plansBox.querySelectorAll('.mn-pop-plan img').forEach(function(img){
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', function(){
+          var src = hires(img.getAttribute('src'));
+          var lb = document.createElement('div');
+          lb.className = 'mn-lightbox';
+          lb.innerHTML = '<img src="'+src+'" alt=""><button class="mn-lightbox-close" aria-label="Закрыть">&times;</button>';
+          document.body.appendChild(lb);
+          function closeLb(){if(lb.parentNode) lb.parentNode.removeChild(lb); document.removeEventListener('keydown', escLb)}
+          function escLb(e){if(e.key==='Escape') closeLb()}
+          lb.addEventListener('click', function(e){
+            if(e.target===lb || e.target.classList.contains('mn-lightbox-close')) closeLb();
+          });
+          document.addEventListener('keydown', escLb);
+        });
       });
     } else {
       plansLabel.style.display='none';
@@ -522,7 +543,7 @@ var STYLE_CSS = (
 '@media (max-width:560px){#mn-catalog .mn-filters{grid-template-columns:1fr;padding:12px}#mn-catalog .mn-grid{grid-template-columns:1fr;gap:12px}#mn-catalog .mn-card{border-radius:12px}#mn-catalog .mn-body{padding:14px;gap:9px}#mn-catalog .mn-name{font-size:16px}}'+
 /* ========== POPUP CSS ========== */
 '#mn-overlay{position:fixed;inset:0;background:rgba(15,20,30,.6);backdrop-filter:blur(4px);z-index:9999;display:none;align-items:flex-start;justify-content:center;padding:24px;overflow-y:auto;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:#1a1a1a}'+
-'#mn-overlay .mn-pop{background:#fff;border-radius:18px;max-width:1100px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.35);overflow:hidden;position:relative;display:grid;grid-template-columns:1.2fr 1fr;min-height:600px}'+
+'#mn-overlay .mn-pop{background:#fff;border-radius:18px;max-width:1100px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.35);overflow:hidden;position:relative;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);min-height:600px}'+
 '#mn-overlay .mn-pop-close{position:absolute;top:14px;right:14px;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.95);border:none;font-size:26px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:20;box-shadow:0 2px 8px rgba(0,0,0,.15);line-height:1;font-weight:300}'+
 '#mn-overlay .mn-pop-gallery{background:#0f1420;display:flex;flex-direction:column;color:#fff;min-height:600px;position:relative}'+
 '#mn-overlay .mn-pop-main{flex:1;position:relative;min-height:380px;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden}'+
@@ -568,6 +589,10 @@ var STYLE_CSS = (
 '#mn-overlay .mn-pop-btn-tg{background:#2aabee;color:#fff !important;border:1.5px solid #2aabee}'+
 '#mn-overlay .mn-pop-btn-max{background:#ff6a00;color:#fff !important;border:1.5px solid #ff6a00}'+
 '@media (max-width:900px){#mn-overlay{padding:12px 6px}#mn-overlay .mn-pop{grid-template-columns:1fr;min-height:auto;border-radius:14px}#mn-overlay .mn-pop-gallery{min-height:auto}#mn-overlay .mn-pop-main{min-height:240px}#mn-overlay .mn-pop-info{padding:22px 18px 18px;gap:11px;max-height:none;overflow:visible}#mn-overlay .mn-pop-name{font-size:22px}#mn-overlay .mn-pop-price-range{font-size:18px}#mn-overlay .mn-pop-chars{grid-template-columns:1fr}#mn-overlay .mn-pop-actions{grid-template-columns:repeat(2,1fr);gap:8px}#mn-overlay .mn-pop-btn{padding:13px 4px;font-size:13px}}'+
-'@media (max-width:480px){#mn-overlay .mn-pop-name{font-size:20px}#mn-overlay .mn-pop-main{min-height:200px}#mn-overlay .mn-pop-thumbs img{width:72px;height:52px}#mn-overlay .mn-pop-promos{bottom:48px}#mn-overlay .mn-pop-plans{grid-template-columns:1fr}#mn-overlay .mn-pop-plan img{height:180px}}'
+'@media (max-width:480px){#mn-overlay .mn-pop-name{font-size:20px}#mn-overlay .mn-pop-main{min-height:200px}#mn-overlay .mn-pop-thumbs img{width:72px;height:52px}#mn-overlay .mn-pop-promos{bottom:48px}#mn-overlay .mn-pop-plans{grid-template-columns:1fr}#mn-overlay .mn-pop-plan img{height:180px}}'+
+/* ========== LIGHTBOX ========== */
+'.mn-lightbox{position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:10010;display:flex;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}'+
+'.mn-lightbox img{max-width:95%;max-height:95vh;object-fit:contain;border-radius:6px;background:#fff}'+
+'.mn-lightbox-close{position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.95);border:none;font-size:28px;cursor:pointer;line-height:1;font-weight:300}'
 );
 })();
